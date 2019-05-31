@@ -117,10 +117,20 @@
 			background-position: center;
 			background-size: cover;
 			position: absolute;
-			bottom: 3rem;
-			right: 3rem;
-			width: 35rem;
-			height: 35rem;
+			bottom: 3vw;
+			right: 2.5vw;
+			width: 16vw;
+			height: 16vw;
+			z-index: -9999;
+			animation: App-logo-spin infinite 20s linear;
+		}
+		@keyframes App-logo-spin{
+			from{
+				transform: rotate(0deg);
+			}
+			to{
+				transform: rotate(360deg);
+			}
 		}
 	</style>
 	<script src="https://unpkg.com/react@16/umd/react.development.js"></script>
@@ -203,8 +213,10 @@
 				<div>
 					<div className="todo-input">
 						<h1>TODO list</h1>
-						<input value={this.state.inputValue} className="input-field" type="text" onChange={this.getInput}/>
-						<a href="#" className="submit-btn" onClick={this.generateList}>NEW</a>
+						<form>
+							<input value={this.state.inputValue} className="input-field" type="text" onChange={this.getInput}/>
+							<input type="submit" value="NEW" href="#" className="submit-btn" onClick={this.generateList}/>
+						</form>
 					</div>
 					<div>
 						< ToDoItem lists={this.listData} update={this.updateListData}/>
